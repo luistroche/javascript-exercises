@@ -138,34 +138,155 @@ sortingWords("Google do a barrel roll");
 ////////////////////////////////////////////////////////////////
 
 
-function wordTitle(str){
-  var title = spliter(str);
-  var deletreo;
-  var primerLetra;
-  var juntando =[];
-  for (var i = 0; i < title.length; i++){
-    deletreo = title[i].split("");
-    title.shift();
-    primerLetra = deletreo.shift();
-    deletreo.unshift(primerLetra.toUpperCase());
-    var cosa = deletreo.join('');
-    juntando.push(cosa);
-    
-  }//end for 
+function titleCase(str){
+  var formedNewSentence = '';
+  var newWordArray = [];
+  var separatedWord = sentenceSplitter(str);
+ 
   
-  return juntando.join(" ");
+  for(var e = 0; e < separatedWord.length; e++){
+    var firstWord = separatedWord[e];
+    var firstWordSeparated = firstWord.split("");
+    var firstLetterfromFirstWord = firstWordSeparated.shift();
+    firstWordSeparated.unshift(firstLetterfromFirstWord.toUpperCase());
+    var firstWordUnited = firstWordSeparated.join("");
+      if(e == separatedWord){
+        newWordArray.push(firstWordUnited);
+      }else{
+        newWordArray.push(firstWordUnited);
+      }
+    
+    formedNewSentence = newWordArray.join(" ");
+    
+  }//end for
+  //console.log(separatedWord.join(" "));
+  
+   return formedNewSentence;
   
 }//end wordTitle function
 
-function spliter(abc){
+function sentenceSplitter(abc){
   
   var spellWord = abc.toLowerCase().split(" ");
   return spellWord;
   
-}//end function spliter
+}//end function sentenceSpliter
 
 
-var tre = "I'm a little tea pot";
-wordTitle(tre);
+
 
 //////////// not done //////////////////
+
+
+// Return Largest Numbers in Arrays 
+// Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.
+
+// Remember, you can iterate through an array with a simple for loop, and access each member with array syntax arr[i].
+
+// Remember to use Read-Search-Ask if you get stuck. Write your own code.
+
+// Here are some helpful links:
+
+// Comparison Operators
+
+
+function largestOfFour(arr){
+  var arrayNum = [];
+  for(var e = 0; e < arr.length; e++){
+    arr[e].sort(function(a, b){return b -a;});
+    var nume = arr[e][0];
+    arrayNum.push(nume);
+  }//end for
+  return arrayNum;
+  
+
+  
+}
+//largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Confirm the Ending 
+// Check if a string (first argument, str) ends with the given target string (second argument, target).
+
+// This challenge can be solved with the .endsWith() method, which was introduced in ES2015. But for the purpose of this challenge, we would like you to use one of the JavaScript substring methods instead.
+
+// Remember to use Read-Search-Ask if you get stuck. Write your own code.
+
+// Here are some helpful links:
+
+// String.prototype.substr()
+// String.prototype.substring()
+
+function confirmEnding(str, target){
+
+  var endWord = str.substring(str.length - target.length);
+  if(endWord == target){
+    //console.log(endWord + "=="+ target);
+    return true;
+  }else{
+    //console.log(endWord + "!="+ target);
+    return false;
+  }//end else
+  
+}
+//confirmEnding("Bastian", "n");
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Repeat a string repeat a string 
+// Repeat a given string (first argument) num times (second argument). Return an empty string if num is not a positive number.
+
+// Remember to use Read-Search-Ask if you get stuck. Write your own code.
+
+// Here are some helpful links:
+
+// Global String Object
+
+function repeatStringNumTimes(str, num) {
+  // repeat after me
+  var myString = "";
+  if(num < 0){
+    myString = "";
+  }else{
+    myString = str.repeat(num);
+  }
+  return myString;
+}
+
+repeatStringNumTimes("abc", 3);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Truncate a string
+// Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a ... ending.
+
+// Note that inserting the three dots to the end will add to the string length.
+
+// However, if the given maximum string length num is less than or equal to 3, then the addition of the three dots does not add to the string length in determining the truncated string.
+
+// Remember to use Read-Search-Ask if you get stuck. Write your own code.
+
+// Here are some helpful links:
+
+// String.prototype.slice()
+
+function truncateString(str, num) {
+  if(num < 3){
+    return str.slice(0, num) + "...";  
+  }else if(str.length > num){
+    var cuted = str.slice(0, num - 3);
+    console.log( cuted + "..." +" if");
+    return cuted + "...";
+  }else if(str.length == num){
+    console.log(str.length + " == "+ num);
+    return str;
+  }else{ 
+    return str ;
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
