@@ -290,3 +290,28 @@ function truncateString(str, num) {
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Chunky Monkey
+// Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+
+// Remember to use Read-Search-Ask if you get stuck. Write your own code.
+
+// Here are some helpful links:
+
+// Array.prototype.push()
+// Array.prototype.slice()
+
+function chunkArrayInGroups(arr, size){
+  var myArray = [];
+  for(var e = 0; arr.length > 0; e++){
+    var tempArray = arr.slice(0, size);
+    myArray.push(tempArray);
+    arr.splice(0 , size);
+    
+  }//end for
+  
+  return myArray;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
