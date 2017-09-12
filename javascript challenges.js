@@ -335,3 +335,42 @@ function slasher(arr, howMany) {
   
   return arr;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Mutations
+// Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+
+// For example, ["hello", "Hello"], should return true because all of the letters in the second string are present in the first, ignoring case.
+
+// The arguments ["hello", "hey"] should return false because the string "hello" does not contain a "y".
+
+// Lastly, ["Alien", "line"], should return true because all of the letters in "line" are present in "Alien".
+
+// Remember to use Read-Search-Ask if you get stuck. Write your own code.
+
+// Here are some helpful links:
+
+// String.prototype.indexOf()
+
+function mutation(palabras){
+  var origen = palabras[0].toLowerCase().split("");
+  var busca = palabras[1].toLowerCase().split("");
+  
+  var validatedWord = [];
+  for(var e = 0; e <= busca.length; e++){
+    if(origen.indexOf(busca[e]) != -1) {
+      validatedWord.push(busca[e]);
+      
+    }//end if
+    
+  }//end for
+    if(validatedWord.length == busca.length){
+      return true;
+    }else{
+      return false;
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
