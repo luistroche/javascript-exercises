@@ -396,3 +396,74 @@ function bouncer(arr){
 }
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Seek and Destroy
+// You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
+
+// Remember to use Read-Search-Ask if you get stuck. Write your own code.
+
+// Here are some helpful links:
+
+// Arguments object
+// Array.prototype.filter()
+
+function destroyer(arr){
+  var filtrados = [];
+  var filtros = [];
+  for(var e = 1; e < arguments.length; e++){
+    filtros.push(arguments[e]);
+  }//end for
+  var toFilter = arr.filter(function(){
+    return arguments[0];
+  });// end toFilter
+  for(var y = 0; y != toFilter.length;){
+    if(toFilter[y] == filtros[0]){
+      toFilter.shift();
+    }else if(toFilter[y] == filtros[1]){
+      toFilter.shift();
+    }else if(toFilter[y] == filtros[2]){
+      toFilter.shift();
+    }else{
+      filtrados.push(toFilter[y]);
+      toFilter.shift();
+    }
+  }//end for
+  
+  
+  
+  
+  
+//   toFilter.map(function(element){
+//     for(var y = 0; y < filtros.length; y++){
+//       if (element == filtros[y]){
+//         toFilter.splice(toFilter.indexOf(element), 1);
+//         y = -1;
+//       }else{
+//         filtrados.push(element);
+//       }
+//     }
+//   });
+  return (filtrados);
+}
+
+// destro([1, 2, 3, 1, 2, 3], 2, 3);
+// destro(["tree", "hamburger", 53], "tree", 53);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Where do I belong 
+// Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted. The returned value should be a number.
+
+// For example, getIndexToIns([1,2,3,4], 1.5) should return 1 because it is greater than 1 (index 0), but less than 2 (index 1).
+
+// Likewise, getIndexToIns([20,3,5], 19) should return 2 because once the array has been sorted it will look like [3,5,20] and 19 is less than 20 (index 2) and greater than 5 (index 1).
+
+// Remember to use Read-Search-Ask if you get stuck. Write your own code.
+
+// Here are some helpful links:
+
+// Array.prototype.sort()
+
+
