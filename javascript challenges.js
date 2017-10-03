@@ -466,4 +466,24 @@ function destroyer(arr){
 
 // Array.prototype.sort()
 
+function getIndexToIns(arr, num){
+  function buscadorNumero(elem) {
+    return elem == num;
+  }// end function buscadorNumero
+  function compareNumbers(a, b){
+    return a - b;
+  }//end function compareNumbers
+  var lista = arr;
+  var numero = num;
+  lista.push(num);
+  lista.sort(compareNumbers);
+  var indexando = lista.findIndex(buscadorNumero);
+  
+  return indexando;
+  
+  
+}//end function arreglador
 
+arreglador([3, 10, 5], 3);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
